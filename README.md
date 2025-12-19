@@ -54,11 +54,95 @@ On configure le Soc du FPGA pour téléverser la description matérielle.
 
 ## 1.2 Faire clignoter une LED
 
+1. Plusieurs horloges sont disponibles sur la carte. Sur quelle broche est connectée l’horloge nommée FPGA_CLK1_50 ?
+
+2. Code pour faire clignoter la LED : 
+
+
+```VHDL
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity TP1_FPGA_CORDI_THEBAULT is
+    port (
+        i_clk : in std_logic;
+        i_rst_n : in std_logic;
+        o_led : out std_logic
+    );
+end entity TP1_FPGA_CORDI_THEBAULT;
+
+architecture rtl of TP1_FPGA_CORDI_THEBAULT is
+    signal r_led : std_logic := '0';
+begin
+	process(i_clk, i_rst_n)
+		variable counter : natural range 0 to 5000000 := 0;
+	begin
+		 if (i_rst_n = '0') then
+			  counter := 0;
+			  r_led_enable <= '0';
+		 elsif (rising_edge(i_clk)) then
+			  if (counter = 12500000) then -- 0.25 s x 50 000 000 = 12 500 000 cycles d'horloges (clignote à 2Hz)
+					counter := 0;
+					r_led_enable <= '1';
+			  else
+					counter := counter + 1;
+					r_led_enable <= '0';
+			  end if;
+		 end if;
+	end process;
+    o_led <= r_led;
+end architecture rtl;
+```
+
+3. Schémas correspondant au code VHDL :
+
+![1](img/3.png)
+
+
+Au final : 
+
+```VHDL
+
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity TP1_FPGA_CORDI_THEBAULT is
+    port (
+        i_clk : in std_logic;
+        i_rst_n : in std_logic;
+        o_led : out std_logic
+    );
+end entity TP1_FPGA_CORDI_THEBAULT;
+
+architecture rtl of TP1_FPGA_CORDI_THEBAULT is
+    signal counter : natural := 0;
+    signal r_led   : std_logic := '0';
+begin
+    process(i_clk, i_rst_n)
+    begin
+        if (i_rst_n = '0') then
+            counter <= 0;
+            r_led   <= '0';
+
+        elsif rising_edge(i_clk) then
+            if counter = 12500000 then  -- 0.25 s x 50 000 000 = 12 500 000 cycles d'horloges (clignote à 2Hz)
+                counter <= 0;
+                r_led   <= not r_led;     -- on inverse la LED
+            else
+                counter <= counter + 1;
+            end if;
+        end if;
+    end process;
+
+    o_led <= r_led;
+end architecture;
+
+```
 
 
 ## 1.3 Chenillard
 
-![v1](vid/2.mp4)
+<video src="vid/2.mp4" controls></video>
 
 
 # 2. Petit projet : Ecran Magique 
