@@ -40,10 +40,26 @@
 # 1. Démarrage
 
 ## 1.1 Création du projet
+La première étape consiste à créer un nouveau projet dans Quartus Prime. Il faut choisir un nom sans espaces ni caractères spéciaux, sélectionner le FPGA cible (modèle 5CSEBA6U23I7) et configurer un projet vide. Cette préparation est essentielle pour organiser correctement les fichiers VHDL et faciliter la compilation et la programmation ultérieures.
+
+![2](img/2.jpeg)
+
+
+On configure le Soc du FPGA pour téléverser la description matérielle. 
+
+
+![1](img/1.png)
+
+
 
 ## 1.2 Faire clignoter une LED
 
+
+
 ## 1.3 Chenillard
+
+![v1](vid/2.mp4)
+
 
 # 2. Petit projet : Ecran Magique 
 
