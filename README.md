@@ -145,6 +145,11 @@ end architecture;
 <video src="vid/2.mp4" controls></video>
 
 
+https://github.com/user-attachments/assets/f6c4f2c6-4612-4acd-bf6a-1028251381b8
+
+
+
+
 # 2. Petit projet : Ecran Magique 
 
 ## 2.1 Gestion des encodeurs
