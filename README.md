@@ -94,6 +94,14 @@ begin
 end architecture rtl;
 ```
 
+
+
+https://github.com/user-attachments/assets/8400439e-1365-4d4a-8d4b-70f9d9beda97
+
+
+
+
+
 3. Schémas correspondant au code VHDL :
 
 ![1](img/3.png)
@@ -142,10 +150,12 @@ end architecture;
 
 ## 1.3 Chenillard
 
-<video src="vid/2.mp4" controls></video>
+Un chenillard a été conçu à l’aide d’un registre à décalage et d’une logique de temporisation. Les LEDs s’allument successivement, illustrant l’utilisation conjointe de registres et de logique séquentielle.
 
 
-https://github.com/user-attachments/assets/f6c4f2c6-4612-4acd-bf6a-1028251381b8
+https://github.com/user-attachments/assets/0ac3916e-ae30-4b48-ab22-c00447792015
+
+
 
 
 
@@ -154,15 +164,46 @@ https://github.com/user-attachments/assets/f6c4f2c6-4612-4acd-bf6a-1028251381b8
 
 ## 2.1 Gestion des encodeurs
 
+Les encodeurs rotatifs ont été traités en détectant les fronts montants et descendants des signaux en quadrature. La mémorisation de l’état précédent permet de déterminer le sens de rotation et de mettre à jour un registre.
+
+
+
+https://github.com/user-attachments/assets/965f49fa-1c67-4c24-adb3-197170e0cac4
+
+
+
 ## 2.2 Comment visualiser la sortie HDMI ?
+
+La sortie HDMI de la carte est visualisée à l’aide d’un adaptateur HDMI vers USB et du logiciel VLC, ce qui permet d’observer le signal vidéo sans utiliser un écran dédié.
 
 ## 2.3 Contrôleur HDMI
 
+Le contrôleur HDMI développé en TD a été intégré au projet. Les compteurs de pixels et les signaux de synchronisation permettent de générer une image, chaque composante RGB correspondant à un octet du bus vidéo.
+
+
 ## 2.4 Déplacement d'un pixel
+
+Un pixel blanc est affiché lorsque les coordonnées issues des encodeurs correspondent aux compteurs du contrôleur HDMI. Cette étape valide l’interaction entre les entrées utilisateur et l’affichage.
+
+https://github.com/user-attachments/assets/48a6d9c4-a86c-48d4-848e-edf9348b6891
+
+
+
+
 
 ## 2.5 Mémorisation
 
+Un framebuffer basé sur une mémoire RAM *dual-port* est utilisé pour mémoriser les pixels affichés. Le port A est dédié à l’écriture, tandis que le port B permet la lecture continue par le contrôleur HDMI.
+
+
 ## 2.6 Effacement
+
+L’effacement de l’écran est réalisé en parcourant l’ensemble des adresses de la mémoire afin d’y écrire des zéros. Cette opération est déclenchée par un bouton et nécessite une logique de contrôle spécifique.
+
+
+
+
+
 
 
 
