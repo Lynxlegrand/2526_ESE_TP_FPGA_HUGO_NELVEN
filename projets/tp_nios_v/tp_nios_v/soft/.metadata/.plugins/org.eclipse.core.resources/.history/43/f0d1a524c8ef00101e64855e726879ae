@@ -1,0 +1,32 @@
+#include <unistd.h> // for usleep
+
+#include "system.h"
+#include "altera_avalon_pio_regs.h"
+
+#include <stdio.h>
+useconds_t time = 100000;
+uint16_t leds = 1;
+
+int main (void)
+{
+	printf("Hello, world!\n");
+
+	while(1){
+
+		IOWR_ALTERA_AVALON_PIO_DATA(PIO_0_BASE, leds);
+		usleep(time);
+
+//		IOWR_ALTERA_AVALON_PIO_DATA(PIO_0_BASE, 0);
+//		usleep(time);
+//		Plus besoin car on décale le 1
+
+
+		if (leds == 0b1000000000){
+			leds = 1;
+		}
+		else{
+			leds = leds << 1;
+		}
+	}
+	return 0;
+}
