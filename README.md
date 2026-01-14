@@ -26,6 +26,9 @@
 - [2.5 Mémorisation](#25-mémorisation)
 - [2.6 Effacement](#26-effacement)
 - [3 FPGA avancé](#3-FPGA-avancé)
+- [3.1 Test blink LED](##31-Test-blink-LED)
+- [3.2 Test chenillard](##32-Test-chenillard)
+- [3.3 Petit projet](##33-Petit-projet)
 
 
 # 🎯 Objectif du TP
@@ -1433,7 +1436,7 @@ int main (void)
 }
 ```
 
-ajouter vidéo 
+https://github.com/user-attachments/assets/e8d5e9ba-be85-4847-9ce2-acf8a7e3b594
 
 ## 3.2 Test chenillard
 
@@ -1472,9 +1475,9 @@ int main (void)
 }
 ```
 
-ajouter video
+https://github.com/user-attachments/assets/31245c71-004f-479b-92f5-90f811d1c248
 
-## 3.4 Petit projet
+## 3.3 Petit projet
 
 On reste dans le projet niosv et 
 
