@@ -26,9 +26,9 @@
 - [2.5 Mémorisation](#25-mémorisation)
 - [2.6 Effacement](#26-effacement)
 - [3 FPGA avancé](#3-FPGA-avancé)
-- [3.1 Test blink LED](##31-Test-blink-LED)
-- [3.2 Test chenillard](##32-Test-chenillard)
-- [3.3 Petit projet](##33-Petit-projet)
+- [3.1 Test blink LED](##31-test-blink-LED)
+- [3.2 Test chenillard](##32-test-chenillard)
+- [3.3 Petit projet](##33-petit-projet)
 
 
 # 🎯 Objectif du TP
